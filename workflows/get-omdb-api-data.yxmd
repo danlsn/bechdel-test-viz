@@ -1,0 +1,2207 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\DanielLawson\IdeaProjects\bechdel-test-viz\data\bechdel-test\all-movies.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>all-movies.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="record_id" source="PythonTool:" type="Int16" />
+            <Field name="id" source="PythonTool:" type="Int16" />
+            <Field name="imdbid" size="1073741823" source="PythonTool:" type="V_WString" />
+            <Field name="rating" source="PythonTool:" type="Byte" />
+            <Field name="title" size="1073741823" source="PythonTool:" type="V_WString" />
+            <Field name="year" source="PythonTool:" type="Int16" />
+            <Field name="rating_description" size="1073741823" source="PythonTool:" type="V_WString" />
+            <Field name="pass" size="1073741823" source="PythonTool:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="258" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="base_url" />
+            <Field name="endpoint" />
+            <Field name="apikey" />
+          </Fields>
+          <Data>
+            <r>
+              <c>http://www.omdbapi.com</c>
+              <c>/</c>
+              <c>a6e1986</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="162" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="imdbid" selected="True" rename="i" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="258" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="&quot;tt&quot; + [i]" field="i" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[i = "tt" + [i]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="390" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Allow</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Source_base_url" selected="True" input="Source_" />
+                <SelectField field="Source_endpoint" selected="True" input="Source_" />
+                <SelectField field="Source_apikey" selected="True" input="Source_" />
+                <SelectField field="Target_i" selected="True" input="Target_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+        <Position x="654" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <URLField>request_url</URLField>
+          <OutputMode>String</OutputMode>
+          <CodePage>65001</CodePage>
+          <EncodeURLs value="True" />
+          <Headers>
+            <NameValues />
+            <Fields orderChanged="False">
+              <Field name="base_url" selected="False" />
+              <Field name="endpoint" selected="False" />
+              <Field name="apikey" selected="False" />
+              <Field name="i" selected="False" />
+              <Field name="request_url" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </Fields>
+          </Headers>
+          <Payload>
+            <HTTPAction>GET</HTTPAction>
+            <QueryStringBodyMode>Compose</QueryStringBodyMode>
+            <ComposeNameValues />
+            <ComposeFields orderChanged="False">
+              <Field name="apikey" />
+              <Field name="i" />
+              <Field name="base_url" selected="False" />
+              <Field name="endpoint" selected="False" />
+              <Field name="request_url" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </ComposeFields>
+          </Payload>
+          <numConnections>10</numConnections>
+          <Timeout>600</Timeout>
+          <EnableRPM value="False" />
+          <Password />
+          <UserName />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="498" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[base_url] + [endpoint]" field="request_url" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[request_url = [base_url] + [endpoint]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="810" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="i" selected="True" />
+            <SelectField field="DownloadData" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
+        <Position x="906" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JSON_Field>DownloadData</JSON_Field>
+          <IncludeInOutput value="False" />
+          <SingleField value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJSONParse" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="1002" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="i" />
+          </GroupFields>
+          <HeaderField field="JSON_Name" />
+          <DataField field="JSON_ValueString" />
+          <Methods>
+            <Method method="First" />
+            <Separator>;</Separator>
+            <FieldSize value="2048" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="i" size="1073741823" source="CrossTab:Group:First:" type="V_WString" />
+            <Field name="Actors" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Awards" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="BoxOffice" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Country" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Director" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="DVD" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Episode" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Error" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Genre" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="imdbID" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="imdbRating" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="imdbVotes" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Language" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Metascore" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Plot" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Poster" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Production" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Rated" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Ratings_0_Source" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Ratings_0_Value" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Ratings_1_Source" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Ratings_1_Value" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Ratings_2_Source" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Ratings_2_Value" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Released" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Response" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Runtime" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Season" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="seriesID" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Title" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="totalSeasons" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Type" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Website" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Writer" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Year" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="i" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings>
+        <Position x="1098" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Check Box (135)">False</Value>
+          <Value name="Check Box (136)">False</Value>
+          <Value name="List Box (11)">"BoxOffice","imdbVotes","Runtime"</Value>
+          <Value name="Check Box (84)">True</Value>
+          <Value name="Check Box (117)">True</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">True</Value>
+          <Value name="Check Box (122)">True</Value>
+          <Value name="Check Box (53)">True</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">True</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="1194" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Actors</Field>
+          <ErrorHandling>Error</ErrorHandling>
+          <RootName>Actor_</RootName>
+          <Delimeters value="," />
+          <NumFields value="30" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="1290" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Country</Field>
+          <ErrorHandling>Error</ErrorHandling>
+          <RootName>Country_</RootName>
+          <Delimeters value="," />
+          <NumFields value="30" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="1194" y="282" width="540" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Split Columns for Actor, Country, Director, Genre, Language, Writer</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="1" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="1386" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Director</Field>
+          <ErrorHandling>Error</ErrorHandling>
+          <RootName>Director_</RootName>
+          <Delimeters value="," />
+          <NumFields value="30" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="1482" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Genre</Field>
+          <ErrorHandling>Error</ErrorHandling>
+          <RootName>Genre_</RootName>
+          <Delimeters value="," />
+          <NumFields value="30" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="1578" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Language</Field>
+          <ErrorHandling>Error</ErrorHandling>
+          <RootName>Language_</RootName>
+          <Delimeters value="," />
+          <NumFields value="30" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="1674" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Writer</Field>
+          <ErrorHandling>Error</ErrorHandling>
+          <RootName>Writer_</RootName>
+          <Delimeters value="," />
+          <NumFields value="30" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings>
+        <Position x="1962" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Check Box (135)">False</Value>
+          <Value name="Check Box (136)">True</Value>
+          <Value name="List Box (11)">"i","Actor_1","Actor_2","Actor_3","Actor_4","Awards","BoxOffice","Country_1","Country_2","Country_3","Country_4","Director_1","Director_2","Director_3","Director_4","DVD","Genre_1","Genre_2","Genre_3","Genre_4","Genre_5","Genre_6","imdbID","imdbRating","imdbVotes","Language_1","Language_2","Language_3","Language_4","Language_5","Language_6","Language_7","Metascore","Plot","Poster","Production","Rated","Ratings_0_Source","Ratings_0_Value","Ratings_1_Source","Ratings_1_Value","Ratings_2_Source","Ratings_2_Value","Released","Response","Runtime","Title","Type","Website","Writer_1","Writer_2","Writer_3","Writer_4","Year"</Value>
+          <Value name="Check Box (84)">False</Value>
+          <Value name="Check Box (117)">False</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">True</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="1866" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="i" />
+            <Field name="Actor_1" />
+            <Field name="Actor_2" />
+            <Field name="Actor_3" />
+            <Field name="Actor_4" />
+            <Field name="Actor_5" />
+            <Field name="Actor_6" />
+            <Field name="Actor_7" />
+            <Field name="Actor_8" />
+            <Field name="Actor_9" />
+            <Field name="Actor_10" />
+            <Field name="Awards" />
+            <Field name="BoxOffice" />
+            <Field name="Country_1" />
+            <Field name="Country_2" />
+            <Field name="Country_3" />
+            <Field name="Country_4" />
+            <Field name="Country_5" />
+            <Field name="Country_6" />
+            <Field name="Country_7" />
+            <Field name="Country_8" />
+            <Field name="Country_9" />
+            <Field name="Country_10" />
+            <Field name="Director_1" />
+            <Field name="Director_2" />
+            <Field name="Director_3" />
+            <Field name="Director_4" />
+            <Field name="Director_5" />
+            <Field name="Director_6" />
+            <Field name="Director_7" />
+            <Field name="Director_8" />
+            <Field name="Director_9" />
+            <Field name="Director_10" />
+            <Field name="DVD" />
+            <Field name="Genre_1" />
+            <Field name="Genre_2" />
+            <Field name="Genre_3" />
+            <Field name="Genre_4" />
+            <Field name="Genre_5" />
+            <Field name="Genre_6" />
+            <Field name="Genre_7" />
+            <Field name="Genre_8" />
+            <Field name="Genre_9" />
+            <Field name="Genre_10" />
+            <Field name="imdbID" />
+            <Field name="imdbRating" />
+            <Field name="imdbVotes" />
+            <Field name="Language_1" />
+            <Field name="Language_2" />
+            <Field name="Language_3" />
+            <Field name="Language_4" />
+            <Field name="Language_5" />
+            <Field name="Language_6" />
+            <Field name="Language_7" />
+            <Field name="Language_8" />
+            <Field name="Language_9" />
+            <Field name="Language_10" />
+            <Field name="Metascore" />
+            <Field name="Plot" />
+            <Field name="Poster" />
+            <Field name="Production" />
+            <Field name="Rated" />
+            <Field name="Ratings_0_Source" />
+            <Field name="Ratings_0_Value" />
+            <Field name="Ratings_1_Source" />
+            <Field name="Ratings_1_Value" />
+            <Field name="Ratings_2_Source" />
+            <Field name="Ratings_2_Value" />
+            <Field name="Released" />
+            <Field name="Response" />
+            <Field name="Runtime" />
+            <Field name="Title" />
+            <Field name="Type" />
+            <Field name="Website" />
+            <Field name="Writer_1" />
+            <Field name="Writer_2" />
+            <Field name="Writer_3" />
+            <Field name="Writer_4" />
+            <Field name="Writer_5" />
+            <Field name="Writer_6" />
+            <Field name="Writer_7" />
+            <Field name="Writer_8" />
+            <Field name="Writer_9" />
+            <Field name="Writer_10" />
+            <Field name="Year" />
+            <Field name="Episode" />
+            <Field name="Error" />
+            <Field name="Season" />
+            <Field name="seriesID" />
+            <Field name="totalSeasons" />
+            <Field name="Actor_11" />
+            <Field name="Actor_12" />
+            <Field name="Actor_13" />
+            <Field name="Actor_14" />
+            <Field name="Actor_15" />
+            <Field name="Actor_16" />
+            <Field name="Actor_17" />
+            <Field name="Actor_18" />
+            <Field name="Actor_19" />
+            <Field name="Actor_20" />
+            <Field name="Actor_21" />
+            <Field name="Actor_22" />
+            <Field name="Actor_23" />
+            <Field name="Actor_24" />
+            <Field name="Actor_25" />
+            <Field name="Actor_26" />
+            <Field name="Actor_27" />
+            <Field name="Actor_28" />
+            <Field name="Actor_29" />
+            <Field name="Actor_30" />
+            <Field name="Country_11" />
+            <Field name="Country_12" />
+            <Field name="Country_13" />
+            <Field name="Country_14" />
+            <Field name="Country_15" />
+            <Field name="Country_16" />
+            <Field name="Country_17" />
+            <Field name="Country_18" />
+            <Field name="Country_19" />
+            <Field name="Country_20" />
+            <Field name="Country_21" />
+            <Field name="Country_22" />
+            <Field name="Country_23" />
+            <Field name="Country_24" />
+            <Field name="Country_25" />
+            <Field name="Country_26" />
+            <Field name="Country_27" />
+            <Field name="Country_28" />
+            <Field name="Country_29" />
+            <Field name="Country_30" />
+            <Field name="Director_11" />
+            <Field name="Director_12" />
+            <Field name="Director_13" />
+            <Field name="Director_14" />
+            <Field name="Director_15" />
+            <Field name="Director_16" />
+            <Field name="Director_17" />
+            <Field name="Director_18" />
+            <Field name="Director_19" />
+            <Field name="Director_20" />
+            <Field name="Director_21" />
+            <Field name="Director_22" />
+            <Field name="Director_23" />
+            <Field name="Director_24" />
+            <Field name="Director_25" />
+            <Field name="Director_26" />
+            <Field name="Director_27" />
+            <Field name="Director_28" />
+            <Field name="Director_29" />
+            <Field name="Director_30" />
+            <Field name="Genre_11" />
+            <Field name="Genre_12" />
+            <Field name="Genre_13" />
+            <Field name="Genre_14" />
+            <Field name="Genre_15" />
+            <Field name="Genre_16" />
+            <Field name="Genre_17" />
+            <Field name="Genre_18" />
+            <Field name="Genre_19" />
+            <Field name="Genre_20" />
+            <Field name="Genre_21" />
+            <Field name="Genre_22" />
+            <Field name="Genre_23" />
+            <Field name="Genre_24" />
+            <Field name="Genre_25" />
+            <Field name="Genre_26" />
+            <Field name="Genre_27" />
+            <Field name="Genre_28" />
+            <Field name="Genre_29" />
+            <Field name="Genre_30" />
+            <Field name="Language_11" />
+            <Field name="Language_12" />
+            <Field name="Language_13" />
+            <Field name="Language_14" />
+            <Field name="Language_15" />
+            <Field name="Language_16" />
+            <Field name="Language_17" />
+            <Field name="Language_18" />
+            <Field name="Language_19" />
+            <Field name="Language_20" />
+            <Field name="Language_21" />
+            <Field name="Language_22" />
+            <Field name="Language_23" />
+            <Field name="Language_24" />
+            <Field name="Language_25" />
+            <Field name="Language_26" />
+            <Field name="Language_27" />
+            <Field name="Language_28" />
+            <Field name="Language_29" />
+            <Field name="Language_30" />
+            <Field name="Writer_11" />
+            <Field name="Writer_12" />
+            <Field name="Writer_13" />
+            <Field name="Writer_14" />
+            <Field name="Writer_15" />
+            <Field name="Writer_16" />
+            <Field name="Writer_17" />
+            <Field name="Writer_18" />
+            <Field name="Writer_19" />
+            <Field name="Writer_20" />
+            <Field name="Writer_21" />
+            <Field name="Writer_22" />
+            <Field name="Writer_23" />
+            <Field name="Writer_24" />
+            <Field name="Writer_25" />
+            <Field name="Writer_26" />
+            <Field name="Writer_27" />
+            <Field name="Writer_28" />
+            <Field name="Writer_29" />
+            <Field name="Writer_30" />
+            <Field name="*Unknown" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>IF Contains([_CurrentField_], "N/A") THEN Null() ELSE [_CurrentField_] ENDIF</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF Contains([_CurrentField_], "N/A") THEN Null() ELSE [_Curre...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1770" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="i" selected="True" />
+            <SelectField field="Actors" selected="False" />
+            <SelectField field="Actor_1" selected="True" />
+            <SelectField field="Actor_2" selected="True" />
+            <SelectField field="Actor_3" selected="True" />
+            <SelectField field="Actor_4" selected="True" />
+            <SelectField field="Actor_5" selected="True" />
+            <SelectField field="Actor_6" selected="True" />
+            <SelectField field="Actor_7" selected="True" />
+            <SelectField field="Actor_8" selected="True" />
+            <SelectField field="Actor_9" selected="True" />
+            <SelectField field="Actor_10" selected="True" />
+            <SelectField field="Awards" selected="True" />
+            <SelectField field="BoxOffice" selected="True" />
+            <SelectField field="Country" selected="False" />
+            <SelectField field="Country_1" selected="True" />
+            <SelectField field="Country_2" selected="True" />
+            <SelectField field="Country_3" selected="True" />
+            <SelectField field="Country_4" selected="True" />
+            <SelectField field="Country_5" selected="True" />
+            <SelectField field="Country_6" selected="True" />
+            <SelectField field="Country_7" selected="True" />
+            <SelectField field="Country_8" selected="True" />
+            <SelectField field="Country_9" selected="True" />
+            <SelectField field="Country_10" selected="True" />
+            <SelectField field="Director" selected="False" />
+            <SelectField field="Director_1" selected="True" />
+            <SelectField field="Director_2" selected="True" />
+            <SelectField field="Director_3" selected="True" />
+            <SelectField field="Director_4" selected="True" />
+            <SelectField field="Director_5" selected="True" />
+            <SelectField field="Director_6" selected="True" />
+            <SelectField field="Director_7" selected="True" />
+            <SelectField field="Director_8" selected="True" />
+            <SelectField field="Director_9" selected="True" />
+            <SelectField field="Director_10" selected="True" />
+            <SelectField field="DVD" selected="True" />
+            <SelectField field="Genre" selected="False" />
+            <SelectField field="Genre_1" selected="True" />
+            <SelectField field="Genre_2" selected="True" />
+            <SelectField field="Genre_3" selected="True" />
+            <SelectField field="Genre_4" selected="True" />
+            <SelectField field="Genre_5" selected="True" />
+            <SelectField field="Genre_6" selected="True" />
+            <SelectField field="Genre_7" selected="True" />
+            <SelectField field="Genre_8" selected="True" />
+            <SelectField field="Genre_9" selected="True" />
+            <SelectField field="Genre_10" selected="True" />
+            <SelectField field="imdbID" selected="True" />
+            <SelectField field="imdbRating" selected="True" />
+            <SelectField field="imdbVotes" selected="True" />
+            <SelectField field="Language" selected="False" />
+            <SelectField field="Language_1" selected="True" />
+            <SelectField field="Language_2" selected="True" />
+            <SelectField field="Language_3" selected="True" />
+            <SelectField field="Language_4" selected="True" />
+            <SelectField field="Language_5" selected="True" />
+            <SelectField field="Language_6" selected="True" />
+            <SelectField field="Language_7" selected="True" />
+            <SelectField field="Language_8" selected="True" />
+            <SelectField field="Language_9" selected="True" />
+            <SelectField field="Language_10" selected="True" />
+            <SelectField field="Metascore" selected="True" />
+            <SelectField field="Plot" selected="True" />
+            <SelectField field="Poster" selected="True" />
+            <SelectField field="Production" selected="True" />
+            <SelectField field="Rated" selected="True" />
+            <SelectField field="Ratings_0_Source" selected="True" />
+            <SelectField field="Ratings_0_Value" selected="True" />
+            <SelectField field="Ratings_1_Source" selected="True" />
+            <SelectField field="Ratings_1_Value" selected="True" />
+            <SelectField field="Ratings_2_Source" selected="True" />
+            <SelectField field="Ratings_2_Value" selected="True" />
+            <SelectField field="Released" selected="True" />
+            <SelectField field="Response" selected="True" />
+            <SelectField field="Runtime" selected="True" />
+            <SelectField field="Title" selected="True" />
+            <SelectField field="Type" selected="True" />
+            <SelectField field="Website" selected="True" />
+            <SelectField field="Writer" selected="False" />
+            <SelectField field="Writer_1" selected="True" />
+            <SelectField field="Writer_2" selected="True" />
+            <SelectField field="Writer_3" selected="True" />
+            <SelectField field="Writer_4" selected="True" />
+            <SelectField field="Writer_5" selected="True" />
+            <SelectField field="Writer_6" selected="True" />
+            <SelectField field="Writer_7" selected="True" />
+            <SelectField field="Writer_8" selected="True" />
+            <SelectField field="Writer_9" selected="True" />
+            <SelectField field="Writer_10" selected="True" />
+            <SelectField field="Year" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="2070" y="282" width="240" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Parse Awards &amp; Nominations</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="1" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="2070" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Awards</Field>
+          <RegExExpression value="(\d{1,2}) wins? &amp; (\d{1,2}) nominations?" />
+          <CaseInsensitve value="True" />
+          <Method>ParseComplex</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName>Awards</RootName>
+            <NumFields value="3" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="wins_total" type="V_WString" size="2048" />
+            <Field field="nominations_total" type="V_WString" size="2048" />
+          </ParseComplex>
+          <Match>
+            <Field>__test_field___Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="2166" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Awards</Field>
+          <RegExExpression value="Won (\d{1,2}) Oscars?" />
+          <CaseInsensitve value="True" />
+          <Method>ParseComplex</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName>Awards</RootName>
+            <NumFields value="3" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="wins_oscar" type="V_WString" size="2048" />
+          </ParseComplex>
+          <Match>
+            <Field>i_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="2250" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Awards</Field>
+          <RegExExpression value="Nominated for (\d{1,2}) Oscars?" />
+          <CaseInsensitve value="True" />
+          <Method>ParseComplex</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName>Awards</RootName>
+            <NumFields value="3" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="nominations_oscar" type="V_WString" size="2048" />
+          </ParseComplex>
+          <Match>
+            <Field>i_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="2442" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="i" selected="True" />
+            <SelectField field="Actor_1" selected="True" />
+            <SelectField field="Actor_2" selected="True" />
+            <SelectField field="Actor_3" selected="True" />
+            <SelectField field="Actor_4" selected="True" />
+            <SelectField field="Awards" selected="True" />
+            <SelectField field="wins_total" selected="True" />
+            <SelectField field="nominations_total" selected="True" />
+            <SelectField field="wins_oscar" selected="True" />
+            <SelectField field="nominations_oscar" selected="True" />
+            <SelectField field="BoxOffice" selected="True" type="Int64" size="8" />
+            <SelectField field="Country_1" selected="True" />
+            <SelectField field="Country_2" selected="True" />
+            <SelectField field="Country_3" selected="True" />
+            <SelectField field="Country_4" selected="True" />
+            <SelectField field="Country_5" selected="True" />
+            <SelectField field="Country_6" selected="True" />
+            <SelectField field="Country_7" selected="True" />
+            <SelectField field="Country_8" selected="True" />
+            <SelectField field="Country_9" selected="True" />
+            <SelectField field="Country_10" selected="True" />
+            <SelectField field="Country_11" selected="True" />
+            <SelectField field="Country_12" selected="True" />
+            <SelectField field="Country_13" selected="True" />
+            <SelectField field="Country_14" selected="True" />
+            <SelectField field="Country_15" selected="True" />
+            <SelectField field="Country_16" selected="True" />
+            <SelectField field="Country_17" selected="True" />
+            <SelectField field="Director_1" selected="True" />
+            <SelectField field="Director_2" selected="True" />
+            <SelectField field="Director_3" selected="True" />
+            <SelectField field="Director_4" selected="True" />
+            <SelectField field="Director_5" selected="True" />
+            <SelectField field="Director_6" selected="True" />
+            <SelectField field="Director_7" selected="True" />
+            <SelectField field="Director_8" selected="True" />
+            <SelectField field="Director_9" selected="True" />
+            <SelectField field="Director_10" selected="True" />
+            <SelectField field="Director_11" selected="True" />
+            <SelectField field="Director_12" selected="True" />
+            <SelectField field="Director_13" selected="True" />
+            <SelectField field="DVD" selected="True" />
+            <SelectField field="Genre_1" selected="True" />
+            <SelectField field="Genre_2" selected="True" />
+            <SelectField field="Genre_3" selected="True" />
+            <SelectField field="Genre_4" selected="True" />
+            <SelectField field="Genre_5" selected="True" />
+            <SelectField field="Genre_6" selected="True" />
+            <SelectField field="Genre_7" selected="True" />
+            <SelectField field="Genre_8" selected="True" />
+            <SelectField field="Genre_9" selected="True" />
+            <SelectField field="imdbID" selected="True" />
+            <SelectField field="imdbRating" selected="True" type="Int16" size="2" />
+            <SelectField field="imdbVotes" selected="True" />
+            <SelectField field="Language_1" selected="True" />
+            <SelectField field="Language_2" selected="True" />
+            <SelectField field="Language_3" selected="True" />
+            <SelectField field="Language_4" selected="True" />
+            <SelectField field="Language_5" selected="True" />
+            <SelectField field="Language_6" selected="True" />
+            <SelectField field="Language_7" selected="True" />
+            <SelectField field="Language_8" selected="True" />
+            <SelectField field="Language_9" selected="True" />
+            <SelectField field="Language_10" selected="True" />
+            <SelectField field="Language_11" selected="True" />
+            <SelectField field="Language_12" selected="True" />
+            <SelectField field="Language_13" selected="True" />
+            <SelectField field="Language_14" selected="True" />
+            <SelectField field="Language_15" selected="True" />
+            <SelectField field="Metascore" selected="True" type="Int16" size="2" />
+            <SelectField field="Plot" selected="True" />
+            <SelectField field="Poster" selected="True" />
+            <SelectField field="Production" selected="True" />
+            <SelectField field="Rated" selected="True" />
+            <SelectField field="Ratings_0_Source" selected="True" />
+            <SelectField field="Ratings_0_Value" selected="True" type="Int16" size="2" />
+            <SelectField field="Ratings_1_Source" selected="True" />
+            <SelectField field="Ratings_1_Value" selected="True" type="Int16" size="2" />
+            <SelectField field="Ratings_2_Source" selected="True" />
+            <SelectField field="Ratings_2_Value" selected="True" type="Int16" size="2" />
+            <SelectField field="Released" selected="True" />
+            <SelectField field="Response" selected="True" />
+            <SelectField field="Runtime" selected="True" type="Int16" size="2" />
+            <SelectField field="Title" selected="True" />
+            <SelectField field="Type" selected="True" />
+            <SelectField field="Writer_1" selected="True" />
+            <SelectField field="Writer_2" selected="True" />
+            <SelectField field="Writer_3" selected="True" />
+            <SelectField field="Writer_4" selected="True" />
+            <SelectField field="Writer_5" selected="True" />
+            <SelectField field="Writer_6" selected="True" />
+            <SelectField field="Writer_7" selected="True" />
+            <SelectField field="Writer_8" selected="True" />
+            <SelectField field="Writer_9" selected="True" />
+            <SelectField field="Writer_10" selected="True" />
+            <SelectField field="Year" selected="True" />
+            <SelectField field="Episode" selected="True" />
+            <SelectField field="Error" selected="True" />
+            <SelectField field="Season" selected="True" />
+            <SelectField field="seriesID" selected="True" />
+            <SelectField field="totalSeasons" selected="True" />
+            <SelectField field="Writer_11" selected="True" />
+            <SelectField field="Writer_12" selected="True" />
+            <SelectField field="Writer_13" selected="True" />
+            <SelectField field="Writer_14" selected="True" />
+            <SelectField field="Writer_15" selected="True" />
+            <SelectField field="Writer_16" selected="True" />
+            <SelectField field="Writer_17" selected="True" />
+            <SelectField field="Writer_18" selected="True" />
+            <SelectField field="Writer_19" selected="True" />
+            <SelectField field="Writer_20" selected="True" />
+            <SelectField field="Writer_21" selected="True" />
+            <SelectField field="Writer_22" selected="True" />
+            <SelectField field="Writer_23" selected="True" />
+            <SelectField field="Writer_24" selected="True" />
+            <SelectField field="Writer_25" selected="True" />
+            <SelectField field="Writer_26" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="2346" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="ToNumber([imdbRating]) * 10" field="imdbRating" size="1073741823" type="V_WString" />
+            <FormulaField expression="[imdbRating]" field="Ratings_0_Value" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF REGEX_Match([Ratings_1_Value], &quot;\d{1,}/100&quot;)&#xA;    THEN Replace([Ratings_1_Value], &quot;/100&quot;, &quot;&quot;)&#xA;ELSEIF REGEX_Match([Ratings_1_Value], &quot;\d{1,}%&quot;)&#xA;    THEN Replace([Ratings_1_Value], &quot;%&quot;, &quot;&quot;)&#xA;ELSE [Ratings_1_Value]&#xA;ENDIF" field="Ratings_1_Value" size="1073741823" type="V_WString" />
+            <FormulaField expression="Replace([Ratings_2_Value], &quot;/100&quot;, &quot;&quot;)" field="Ratings_2_Value" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>imdbRating = ToNumber([imdbRating]) * 10
+Ratings_0_Value = [imdbRating]
+Ratings_...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="2646" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">..\data\omdb\all-bechdel-movies.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>all-bechdel-movies.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1194" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="i" selected="True" />
+            <SelectField field="Actors" selected="True" />
+            <SelectField field="Country" selected="True" />
+            <SelectField field="Director" selected="True" />
+            <SelectField field="Genre" selected="True" />
+            <SelectField field="Language" selected="True" />
+            <SelectField field="Writer" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1482" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">..\data\omdb\actors-country-director-etc-raw.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>actors-country-director-etc-raw.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings>
+        <Position x="1386" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Check Box (135)">False</Value>
+          <Value name="Check Box (136)">False</Value>
+          <Value name="List Box (11)">"i","Actors","Country","Director","Genre","Language","Writer"</Value>
+          <Value name="Check Box (84)">True</Value>
+          <Value name="Check Box (117)">True</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">False</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="1290" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="i" />
+            <Field name="Actors" />
+            <Field name="Country" />
+            <Field name="Director" />
+            <Field name="Genre" />
+            <Field name="Language" />
+            <Field name="Writer" />
+            <Field name="*Unknown" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>IF Contains([_CurrentField_], "N/A") THEN Null() ELSE [_CurrentField_] ENDIF</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF Contains([_CurrentField_], "N/A") THEN Null() ELSE [_Curre...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="1482" y="486" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Actors</Field>
+          <Delimeters value="," />
+          <NumFields value="1" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="45">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="1578" y="486" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Country</Field>
+          <Delimeters value="," />
+          <NumFields value="1" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="46">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="1674" y="486" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Director</Field>
+          <Delimeters value="," />
+          <NumFields value="1" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="47">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="1770" y="486" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Genre</Field>
+          <Delimeters value="," />
+          <NumFields value="1" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="48">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="1866" y="486" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Language</Field>
+          <Delimeters value="," />
+          <NumFields value="1" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="49">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="1962" y="486" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Writer</Field>
+          <Delimeters value="," />
+          <NumFields value="1" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="50">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="2346" y="486" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">..\data\omdb\actors-country-director-etc-split-rows.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>actors-country-director-etc-split-rows.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="51">
+      <GuiSettings>
+        <Position x="2058" y="486" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Check Box (135)">False</Value>
+          <Value name="Check Box (136)">False</Value>
+          <Value name="List Box (11)">"i","Actors","Country","Director","Genre","Language","Writer"</Value>
+          <Value name="Check Box (84)">True</Value>
+          <Value name="Check Box (117)">True</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">True</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="2154" y="618" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Country" selected="False" />
+            <SelectField field="Director" selected="False" />
+            <SelectField field="Genre" selected="False" />
+            <SelectField field="Language" selected="False" />
+            <SelectField field="Writer" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="53">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="2346" y="606" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">..\data\omdb\split-rows-actors.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>split-rows-actors.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="54">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="2154" y="702" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Actors" selected="False" />
+            <SelectField field="Director" selected="False" />
+            <SelectField field="Genre" selected="False" />
+            <SelectField field="Language" selected="False" />
+            <SelectField field="Writer" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="55">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="2154" y="786" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Actors" selected="False" />
+            <SelectField field="Country" selected="False" />
+            <SelectField field="Genre" selected="False" />
+            <SelectField field="Language" selected="False" />
+            <SelectField field="Writer" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="56">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="2154" y="858" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Actors" selected="False" />
+            <SelectField field="Country" selected="False" />
+            <SelectField field="Director" selected="False" />
+            <SelectField field="Language" selected="False" />
+            <SelectField field="Writer" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="57">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="2154" y="942" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Actors" selected="False" />
+            <SelectField field="Country" selected="False" />
+            <SelectField field="Director" selected="False" />
+            <SelectField field="Genre" selected="False" />
+            <SelectField field="Writer" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="58">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="2154" y="1038" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Actors" selected="False" />
+            <SelectField field="Country" selected="False" />
+            <SelectField field="Director" selected="False" />
+            <SelectField field="Genre" selected="False" />
+            <SelectField field="Language" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="59">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="2346" y="690" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">..\data\omdb\split-rows-countries.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>split-rows-countries.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="60">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="2346" y="774" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">..\data\omdb\split-rows-directors.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>split-rows-directors.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="61">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="2346" y="846" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">..\data\omdb\split-rows-genres.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>split-rows-genres.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="62">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="2346" y="930" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">..\data\omdb\split-rows-languages.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>split-rows-languages.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="63">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="2346" y="1026" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">..\data\omdb\split-rows-writers.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>split-rows-writers.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="64">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+        <Position x="2250" y="618" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UniqueFields>
+            <Field field="i" />
+            <Field field="Actors" />
+          </UniqueFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+    </Node>
+    <Node ToolID="65">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+        <Position x="2250" y="702" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UniqueFields>
+            <Field field="i" />
+            <Field field="Country" />
+          </UniqueFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+    </Node>
+    <Node ToolID="66">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+        <Position x="2250" y="786" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UniqueFields>
+            <Field field="i" />
+            <Field field="Director" />
+          </UniqueFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+    </Node>
+    <Node ToolID="67">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+        <Position x="2250" y="858" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UniqueFields>
+            <Field field="i" />
+            <Field field="Genre" />
+          </UniqueFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+    </Node>
+    <Node ToolID="68">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+        <Position x="2250" y="942" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UniqueFields>
+            <Field field="i" />
+            <Field field="Language" />
+          </UniqueFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+    </Node>
+    <Node ToolID="69">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+        <Position x="2250" y="1038" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UniqueFields>
+            <Field field="i" />
+            <Field field="Writer" />
+          </UniqueFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+    </Node>
+    <Node ToolID="71">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="2646" y="246" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\DANIEL~1\AppData\Local\Temp\Engine_22456_eaedfb44ea2949c98be1b50f01c95751_\Engine_42368_01d60821416348449cae4bfd2e6db325_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="72">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="2442" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\DANIEL~1\AppData\Local\Temp\Engine_22456_eaedfb44ea2949c98be1b50f01c95751_\Engine_42368_e2db52e66cc443129838cb34f6071ca3_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="5" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="13" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output26" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output26" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output26" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="21" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="23" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="71" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="72" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Output26" />
+      <Destination ToolID="36" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Output26" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="39" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="45" Connection="Output" />
+      <Destination ToolID="46" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="46" Connection="Output" />
+      <Destination ToolID="47" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="47" Connection="Output" />
+      <Destination ToolID="48" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="49" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="49" Connection="Output" />
+      <Destination ToolID="51" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Output26" />
+      <Destination ToolID="50" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Output26" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Output26" />
+      <Destination ToolID="54" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Output26" />
+      <Destination ToolID="55" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Output26" />
+      <Destination ToolID="56" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Output26" />
+      <Destination ToolID="57" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Output26" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="64" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="Output" />
+      <Destination ToolID="65" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="55" Connection="Output" />
+      <Destination ToolID="66" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="56" Connection="Output" />
+      <Destination ToolID="67" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="57" Connection="Output" />
+      <Destination ToolID="68" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="58" Connection="Output" />
+      <Destination ToolID="69" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="64" Connection="Unique" />
+      <Destination ToolID="53" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="65" Connection="Unique" />
+      <Destination ToolID="59" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="66" Connection="Unique" />
+      <Destination ToolID="60" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="67" Connection="Unique" />
+      <Destination ToolID="61" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="68" Connection="Unique" />
+      <Destination ToolID="62" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="69" Connection="Unique" />
+      <Destination ToolID="63" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>get-omdb-api-data</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="bfc61959-c4eb-4e8a-b5b0-3371ed7eda5f" />
+      <Telemetry>
+        <PreviousWorkflowId value="b32d4fa5-561e-48e5-b08d-fb21b92a3cc3" />
+        <OriginWorkflowId value="b32d4fa5-561e-48e5-b08d-fb21b92a3cc3" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

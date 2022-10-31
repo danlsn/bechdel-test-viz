@@ -1,0 +1,330 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="90" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\DanielLawson\IdeaProjects\bechdel-test-viz\data\omdb\all-bechdel-movies.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>all-bechdel-movies.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="i" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Actors" name="Actor_1" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Actors" name="Actor_2" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Actors" name="Actor_3" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Actors" name="Actor_4" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Awards" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="RegEx: Parsed from Awards" name="wins_total" size="2048" source="RegEx: Parsed from Awards" type="V_WString" />
+            <Field description="RegEx: Parsed from Awards" name="nominations_total" size="2048" source="RegEx: Parsed from Awards" type="V_WString" />
+            <Field description="RegEx: Parsed from Awards" name="wins_oscar" size="2048" source="RegEx: Parsed from Awards" type="V_WString" />
+            <Field description="RegEx: Parsed from Awards" name="nominations_oscar" size="2048" source="RegEx: Parsed from Awards" type="V_WString" />
+            <Field name="BoxOffice" source="Formula: [_CurrentField_]" type="Int64" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_1" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_2" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_3" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_4" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_5" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_6" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_7" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_8" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_9" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_10" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_11" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_12" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_13" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_14" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_15" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_16" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_17" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_1" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_2" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_3" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_4" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_5" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_6" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_7" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_8" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_9" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_10" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_11" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_12" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_13" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="DVD" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_1" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_2" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_3" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_4" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_5" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_6" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_7" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_8" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_9" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="imdbID" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="imdbRating" source="Formula: ToNumber([imdbRating]) * 10" type="Int16" />
+            <Field name="imdbVotes" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_1" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_2" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_3" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_4" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_5" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_6" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_7" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_8" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_9" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_10" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_11" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_12" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_13" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_14" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_15" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Metascore" source="Formula: [_CurrentField_]" type="Int16" />
+            <Field name="Plot" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Poster" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Production" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Rated" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Ratings_0_Source" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Ratings_0_Value" source="Formula: [imdbRating]" type="Int16" />
+            <Field name="Ratings_1_Source" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Ratings_1_Value" source="Formula: IF REGEX_Match([Ratings_1_Value], &quot;\d{1,}/100&quot;)&#xA;    THEN Replace([Ratings_1_Value], &quot;/100&quot;, &quot;&quot;)&#xA;ELSEIF REGEX_Match([Ratings_1_Value], &quot;\d{1,}%&quot;)&#xA;    THEN Replace([Ratings_1_Value], &quot;%&quot;, &quot;&quot;)&#xA;ELSE [Ratings_1_Value]&#xA;ENDIF" type="Int16" />
+            <Field name="Ratings_2_Source" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Ratings_2_Value" source="Formula: Replace([Ratings_2_Value], &quot;/100&quot;, &quot;&quot;)" type="Int16" />
+            <Field name="Released" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Response" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Runtime" source="Formula: [_CurrentField_]" type="Int16" />
+            <Field name="Title" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Type" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_1" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_2" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_3" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_4" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_5" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_6" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_7" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_8" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_9" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_10" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Year" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Episode" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Error" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Season" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="seriesID" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="totalSeasons" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_11" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_12" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_13" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_14" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_15" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_16" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_17" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_18" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_19" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_20" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_21" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_22" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_23" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_24" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_25" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_26" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="198" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Actor_1" selected="False" />
+            <SelectField field="Actor_2" selected="False" />
+            <SelectField field="Actor_3" selected="False" />
+            <SelectField field="Actor_4" selected="False" />
+            <SelectField field="Country_1" selected="False" />
+            <SelectField field="Country_2" selected="False" />
+            <SelectField field="Country_3" selected="False" />
+            <SelectField field="Country_4" selected="False" />
+            <SelectField field="Country_5" selected="False" />
+            <SelectField field="Country_6" selected="False" />
+            <SelectField field="Country_7" selected="False" />
+            <SelectField field="Country_8" selected="False" />
+            <SelectField field="Country_9" selected="False" />
+            <SelectField field="Country_10" selected="False" />
+            <SelectField field="Country_11" selected="False" />
+            <SelectField field="Country_12" selected="False" />
+            <SelectField field="Country_13" selected="False" />
+            <SelectField field="Country_14" selected="False" />
+            <SelectField field="Country_15" selected="False" />
+            <SelectField field="Country_16" selected="False" />
+            <SelectField field="Country_17" selected="False" />
+            <SelectField field="Director_1" selected="False" />
+            <SelectField field="Director_2" selected="False" />
+            <SelectField field="Director_3" selected="False" />
+            <SelectField field="Director_4" selected="False" />
+            <SelectField field="Director_5" selected="False" />
+            <SelectField field="Director_6" selected="False" />
+            <SelectField field="Director_7" selected="False" />
+            <SelectField field="Director_8" selected="False" />
+            <SelectField field="Director_9" selected="False" />
+            <SelectField field="Director_10" selected="False" />
+            <SelectField field="Director_11" selected="False" />
+            <SelectField field="Director_12" selected="False" />
+            <SelectField field="Director_13" selected="False" />
+            <SelectField field="Genre_1" selected="False" />
+            <SelectField field="Genre_2" selected="False" />
+            <SelectField field="Genre_3" selected="False" />
+            <SelectField field="Genre_4" selected="False" />
+            <SelectField field="Genre_5" selected="False" />
+            <SelectField field="Genre_6" selected="False" />
+            <SelectField field="Genre_7" selected="False" />
+            <SelectField field="Genre_8" selected="False" />
+            <SelectField field="Genre_9" selected="False" />
+            <SelectField field="Language_1" selected="False" />
+            <SelectField field="Language_2" selected="False" />
+            <SelectField field="Language_3" selected="False" />
+            <SelectField field="Language_4" selected="False" />
+            <SelectField field="Language_5" selected="False" />
+            <SelectField field="Language_6" selected="False" />
+            <SelectField field="Language_7" selected="False" />
+            <SelectField field="Language_8" selected="False" />
+            <SelectField field="Language_9" selected="False" />
+            <SelectField field="Language_10" selected="False" />
+            <SelectField field="Language_11" selected="False" />
+            <SelectField field="Language_12" selected="False" />
+            <SelectField field="Language_13" selected="False" />
+            <SelectField field="Language_14" selected="False" />
+            <SelectField field="Language_15" selected="False" />
+            <SelectField field="Writer_1" selected="False" />
+            <SelectField field="Writer_2" selected="False" />
+            <SelectField field="Writer_3" selected="False" />
+            <SelectField field="Writer_4" selected="False" />
+            <SelectField field="Writer_5" selected="False" />
+            <SelectField field="Writer_6" selected="False" />
+            <SelectField field="Writer_7" selected="False" />
+            <SelectField field="Writer_8" selected="False" />
+            <SelectField field="Writer_9" selected="False" />
+            <SelectField field="Writer_10" selected="False" />
+            <SelectField field="Writer_11" selected="False" />
+            <SelectField field="Writer_12" selected="False" />
+            <SelectField field="Writer_13" selected="False" />
+            <SelectField field="Writer_14" selected="False" />
+            <SelectField field="Writer_15" selected="False" />
+            <SelectField field="Writer_16" selected="False" />
+            <SelectField field="Writer_17" selected="False" />
+            <SelectField field="Writer_18" selected="False" />
+            <SelectField field="Writer_19" selected="False" />
+            <SelectField field="Writer_20" selected="False" />
+            <SelectField field="Writer_21" selected="False" />
+            <SelectField field="Writer_22" selected="False" />
+            <SelectField field="Writer_23" selected="False" />
+            <SelectField field="Writer_24" selected="False" />
+            <SelectField field="Writer_25" selected="False" />
+            <SelectField field="Writer_26" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="306" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="42" MaxRecords="">..\data\tableau\all-bechdel-movies-subset-fields.tde</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>all-bechdel-movies-subset-fields.tde</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>subset-omdb-response-fields</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="b865df90-21a9-4e90-ae1d-da3b206fc95a" />
+      <Telemetry>
+        <PreviousWorkflowId value="58398ab6-4daf-4152-b688-23a042f3e822" />
+        <OriginWorkflowId value="58398ab6-4daf-4152-b688-23a042f3e822" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

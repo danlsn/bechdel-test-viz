@@ -1,0 +1,811 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="150" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="FileName" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\DanielLawson\IdeaProjects\bechdel-test-viz\data\bechdel-test\all-movies.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>all-movies.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="record_id" source="PythonTool:" type="Int16" />
+            <Field name="id" source="PythonTool:" type="Int16" />
+            <Field name="imdbid" size="1073741823" source="PythonTool:" type="V_WString" />
+            <Field name="rating" source="PythonTool:" type="Byte" />
+            <Field name="title" size="1073741823" source="PythonTool:" type="V_WString" />
+            <Field name="year" source="PythonTool:" type="Int16" />
+            <Field name="rating_description" size="1073741823" source="PythonTool:" type="V_WString" />
+            <Field name="pass" size="1073741823" source="PythonTool:" type="V_WString" />
+            <Field name="FileName" size="254" source="File: FileName" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="150" y="179" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="FileName" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\DanielLawson\IdeaProjects\bechdel-test-viz\data\bechdel-test\all-movies-by-id.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>all-movies-by-id.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="id" size="9" source="CrossTab:Header:name:id:Concat:" type="V_String" />
+            <Field name="imdbid" size="10" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="title" size="131" source="CrossTab:Header:name:title:Concat:" type="V_String" />
+            <Field name="year" size="9" source="CrossTab:Header:name:year:Concat:" type="String" />
+            <Field name="date" size="39" source="CrossTab:Header:name:date:Concat:" type="V_String" />
+            <Field name="rating" size="3" source="CrossTab:Header:name:rating:Concat:" type="String" />
+            <Field name="dubious" size="3" source="CrossTab:Header:name:dubious:Concat:" type="String" />
+            <Field name="submitterid" size="11" source="CrossTab:Header:name:submitterid:Concat:" type="V_String" />
+            <Field name="visible" size="3" source="CrossTab:Header:name:visible:Concat:" type="String" />
+            <Field name="description" size="83" source="CrossTab:Header:name:description:Concat:" type="V_String" />
+            <Field name="status" size="15" source="CrossTab:Header:name:status:Concat:" type="V_String" />
+            <Field name="version" size="11" source="CrossTab:Header:name:version:Concat:" type="V_String" />
+            <Field name="FileName" size="254" source="File: FileName" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="150" y="280" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="FileName" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\DanielLawson\IdeaProjects\bechdel-test-viz\data\omdb\actors-country-director-etc-raw.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>actors-country-director-etc-raw.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="i" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Actors" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Country" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Director" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Genre" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Language" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Writer" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="FileName" size="254" source="File: FileName" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="150" y="380" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="FileName" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\DanielLawson\IdeaProjects\bechdel-test-viz\data\omdb\actors-country-director-etc-split-rows.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>actors-country-director-etc-split-rows.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="i" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Actors" name="Actors" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="FileName" size="254" source="File: FileName" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="150" y="481" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="FileName" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\DanielLawson\IdeaProjects\bechdel-test-viz\data\omdb\all-bechdel-movies.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>all-bechdel-movies.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="i" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Actors" name="Actor_1" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Actors" name="Actor_2" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Actors" name="Actor_3" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Actors" name="Actor_4" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Awards" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="RegEx: Parsed from Awards" name="wins_total" size="2048" source="RegEx: Parsed from Awards" type="V_WString" />
+            <Field description="RegEx: Parsed from Awards" name="nominations_total" size="2048" source="RegEx: Parsed from Awards" type="V_WString" />
+            <Field description="RegEx: Parsed from Awards" name="wins_oscar" size="2048" source="RegEx: Parsed from Awards" type="V_WString" />
+            <Field description="RegEx: Parsed from Awards" name="nominations_oscar" size="2048" source="RegEx: Parsed from Awards" type="V_WString" />
+            <Field name="BoxOffice" source="Formula: [_CurrentField_]" type="Int64" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_1" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_2" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_3" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_4" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_5" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_6" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_7" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_8" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_9" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_10" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_11" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_12" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_13" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_14" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_15" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_16" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country_17" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_1" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_2" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_3" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_4" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_5" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_6" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_7" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_8" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_9" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_10" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_11" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_12" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director_13" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="DVD" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_1" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_2" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_3" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_4" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_5" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_6" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_7" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_8" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre_9" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="imdbID" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="imdbRating" source="Formula: ToNumber([imdbRating]) * 10" type="Int16" />
+            <Field name="imdbVotes" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_1" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_2" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_3" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_4" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_5" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_6" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_7" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_8" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_9" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_10" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_11" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_12" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_13" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_14" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language_15" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Metascore" source="Formula: [_CurrentField_]" type="Int16" />
+            <Field name="Plot" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Poster" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Production" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Rated" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Ratings_0_Source" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Ratings_0_Value" source="Formula: [imdbRating]" type="Int16" />
+            <Field name="Ratings_1_Source" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Ratings_1_Value" source="Formula: IF REGEX_Match([Ratings_1_Value], &quot;\d{1,}/100&quot;)&#xA;    THEN Replace([Ratings_1_Value], &quot;/100&quot;, &quot;&quot;)&#xA;ELSEIF REGEX_Match([Ratings_1_Value], &quot;\d{1,}%&quot;)&#xA;    THEN Replace([Ratings_1_Value], &quot;%&quot;, &quot;&quot;)&#xA;ELSE [Ratings_1_Value]&#xA;ENDIF" type="Int16" />
+            <Field name="Ratings_2_Source" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Ratings_2_Value" source="Formula: Replace([Ratings_2_Value], &quot;/100&quot;, &quot;&quot;)" type="Int16" />
+            <Field name="Released" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Response" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Runtime" source="Formula: [_CurrentField_]" type="Int16" />
+            <Field name="Title" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Type" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_1" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_2" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_3" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_4" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_5" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_6" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_7" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_8" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_9" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_10" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Year" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Episode" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Error" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="Season" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="seriesID" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="totalSeasons" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_11" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_12" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_13" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_14" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_15" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_16" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_17" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_18" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_19" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_20" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_21" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_22" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_23" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_24" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_25" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer_26" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="FileName" size="254" source="File: FileName" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="150" y="582" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="FileName" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\DanielLawson\IdeaProjects\bechdel-test-viz\data\omdb\split-rows-actors.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>split-rows-actors.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="i" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Actors" name="Actors" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="FileName" size="254" source="File: FileName" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="150" y="683" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="FileName" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\DanielLawson\IdeaProjects\bechdel-test-viz\data\omdb\split-rows-countries.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>split-rows-countries.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="i" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Country" name="Country" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="FileName" size="254" source="File: FileName" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="150" y="784" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="FileName" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\DanielLawson\IdeaProjects\bechdel-test-viz\data\omdb\split-rows-directors.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>split-rows-directors.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="i" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Director" name="Director" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="FileName" size="254" source="File: FileName" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="150" y="884" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="FileName" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\DanielLawson\IdeaProjects\bechdel-test-viz\data\omdb\split-rows-genres.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>split-rows-genres.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="i" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Genre" name="Genre" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="FileName" size="254" source="File: FileName" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="150" y="985" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="FileName" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\DanielLawson\IdeaProjects\bechdel-test-viz\data\omdb\split-rows-languages.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>split-rows-languages.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="i" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Language" name="Language" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="FileName" size="254" source="File: FileName" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="150" y="1086" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="FileName" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\DanielLawson\IdeaProjects\bechdel-test-viz\data\omdb\split-rows-writers.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>split-rows-writers.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="i" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Writer" name="Writer" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="FileName" size="254" source="File: FileName" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="282" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="42" MaxRecords="">..\data\tableau\filename.tde</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="True" />
+          <MultiFileType>FileName</MultiFileType>
+          <MultiFileField>FileName</MultiFileField>
+          <KeepField value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>filename.tde</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="282" y="179" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="42" MaxRecords="">..\data\tableau\filename.tde</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="True" />
+          <MultiFileType>FileName</MultiFileType>
+          <MultiFileField>FileName</MultiFileField>
+          <KeepField value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>filename.tde</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="282" y="280" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="42" MaxRecords="">..\data\tableau\filename.tde</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="True" />
+          <MultiFileType>FileName</MultiFileType>
+          <MultiFileField>FileName</MultiFileField>
+          <KeepField value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>filename.tde</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="282" y="380" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="42" MaxRecords="">..\data\tableau\filename.tde</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="True" />
+          <MultiFileType>FileName</MultiFileType>
+          <MultiFileField>FileName</MultiFileField>
+          <KeepField value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>filename.tde</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="282" y="481" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="42" MaxRecords="">..\data\tableau\filename.tde</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="True" />
+          <MultiFileType>FileName</MultiFileType>
+          <MultiFileField>FileName</MultiFileField>
+          <KeepField value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>filename.tde</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="282" y="582" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="42" MaxRecords="">..\data\tableau\filename.tde</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="True" />
+          <MultiFileType>FileName</MultiFileType>
+          <MultiFileField>FileName</MultiFileField>
+          <KeepField value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>filename.tde</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="282" y="683" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="42" MaxRecords="">..\data\tableau\filename.tde</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="True" />
+          <MultiFileType>FileName</MultiFileType>
+          <MultiFileField>FileName</MultiFileField>
+          <KeepField value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>filename.tde</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="282" y="784" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="42" MaxRecords="">..\data\tableau\filename.tde</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="True" />
+          <MultiFileType>FileName</MultiFileType>
+          <MultiFileField>FileName</MultiFileField>
+          <KeepField value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>filename.tde</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="282" y="884" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="42" MaxRecords="">..\data\tableau\filename.tde</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="True" />
+          <MultiFileType>FileName</MultiFileType>
+          <MultiFileField>FileName</MultiFileField>
+          <KeepField value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>filename.tde</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="282" y="985" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="42" MaxRecords="">..\data\tableau\filename.tde</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="True" />
+          <MultiFileType>FileName</MultiFileType>
+          <MultiFileField>FileName</MultiFileField>
+          <KeepField value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>filename.tde</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="282" y="1086" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="42" MaxRecords="">..\data\tableau\filename.tde</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="True" />
+          <MultiFileType>FileName</MultiFileType>
+          <MultiFileField>FileName</MultiFileField>
+          <KeepField value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>filename.tde</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>convert-yxdb-to-tableau</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="1628ad9f-fcad-4231-a46d-c0d410f7dcde" />
+      <Telemetry>
+        <PreviousWorkflowId value="a7ba7157-2097-43aa-ae57-55ed9784ca57" />
+        <OriginWorkflowId value="a7ba7157-2097-43aa-ae57-55ed9784ca57" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
